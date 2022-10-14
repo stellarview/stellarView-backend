@@ -6,10 +6,11 @@ const UserService = require('../lib/services/UserService');
 
 // Dummy user for testing
 const mockUser = {
-  firstName: 'Test',
-  lastName: 'User',
+  username: 'User',
   email: 'test@example.com',
   password: '12345',
+  completed_categories: [''],
+  total_points: '0'
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -38,13 +39,14 @@ describe('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
-    const { firstName, lastName, email } = mockUser;
+    const { username, email, total_points } = mockUser;
 
     expect(res.body).toEqual({
       id: expect.any(String),
-      firstName,
-      lastName,
+      username,
       email,
+      completed_categories: null, 
+      total_points
     });
   });
 
@@ -53,6 +55,14 @@ describe('user routes', () => {
     const res = await request(app)
       .post('/api/v1/users/sessions')
       .send({ email: 'test@example.com', password: '12345' });
+    expect(res.status).toEqual(200);
+  });
+
+  it('signs in an existing user', async () => {
+    await request(app).post('/api/v1/users').send(mockUser);
+    const res = await request(app)
+      .post('/api/v1/users/sessions')
+      .send({ username: 'User', password: '12345' });
     expect(res.status).toEqual(200);
   });
 
@@ -80,8 +90,9 @@ describe('user routes', () => {
     await agent.post('/api/v1/users').send({
       email: 'admin',
       password: '1234',
-      firstName: 'admin',
-      lastName: 'admin',
+      username: 'admin',
+      completed_categories: [],
+      total_points: '0'
     });
     // sign in the user
     await agent
