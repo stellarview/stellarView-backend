@@ -37,7 +37,7 @@ describe('user routes', () => {
     pool.end();
   });
 
-  it.only('creates a new user', async () => {
+  it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
     const { username, email, total_points } = mockUser;
 
@@ -55,6 +55,15 @@ describe('user routes', () => {
     const res = await request(app)
       .post('/api/v1/users/sessions')
       .send({ email: 'test@example.com', password: '12345' });
+    expect(res.status).toEqual(200);
+  });
+
+  it('signs in an existing user', async () => {
+    await request(app).post('/api/v1/users').send(mockUser);
+    const res = await request(app)
+      .post('/api/v1/users/sessions')
+      .send({ username: 'User', password: '12345' });
+    console.log('line 66', res.body);
     expect(res.status).toEqual(200);
   });
 
