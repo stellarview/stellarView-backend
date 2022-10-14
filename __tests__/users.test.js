@@ -63,7 +63,6 @@ describe('user routes', () => {
     const res = await request(app)
       .post('/api/v1/users/sessions')
       .send({ username: 'User', password: '12345' });
-    console.log('line 66', res.body);
     expect(res.status).toEqual(200);
   });
 
