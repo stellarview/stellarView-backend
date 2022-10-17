@@ -50,7 +50,7 @@ describe('user routes', () => {
     });
   });
 
-  it('signs in an existing user', async () => {
+  it('signs in an existing user with an email', async () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
@@ -58,7 +58,7 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it('signs in an existing user', async () => {
+  it('signs in an existing user with a username', async () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
@@ -79,7 +79,7 @@ describe('user routes', () => {
 
   it('/users should return 401 if user not admin', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(403);
   });
 
@@ -100,13 +100,13 @@ describe('user routes', () => {
       .send({ email: 'admin', password: '1234' });
 
     // const [agent] = await registerAndLogin({ email: 'admin' });
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(200);
   });
 
   it('/users should return a 200 if user is admin', async () => {
     const [agent] = await registerAndLogin({ email: 'admin' });
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(200);
   });
 
