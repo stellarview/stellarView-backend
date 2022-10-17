@@ -20,7 +20,6 @@ describe('backend-express-template routes', () => {
       .get('/api/v1/github/callback?code=42')
       .redirects(1);
     // console.log('redirect', redirect);
-    console.log(response.body);
     // expect(response.status).toBe(200);
     expect(response.body).toEqual({
       id: expect.any(String),
