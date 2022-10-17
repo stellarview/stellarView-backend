@@ -35,7 +35,7 @@ describe('backend-express-template routes', () => {
       .get('/api/v1/github/callback?code=42')
       .redirects(1);
 
-    expect(res.req.path).toEqual('/api/v1/github/me');
+    expect(res.req.path).toEqual('/api/v1/users/me');
   });
 
   it('#DELETE should sign out a user', async () => {
