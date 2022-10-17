@@ -26,7 +26,8 @@ describe('backend-express-template routes', () => {
       id: expect.any(String),
       username: 'fake_github_user',
       email: 'test@example.com',
-      created_at: expect.any(Date),
+      exp: expect.any(Number),
+      iat: expect.any(Number)
     });
   });
 });
