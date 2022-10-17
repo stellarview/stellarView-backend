@@ -30,7 +30,7 @@ describe('backend-express-template routes', () => {
     });
   });
 
-  it('#GET redirects user to /dashboard after successful login', async () => {
+  it.skip('#GET redirects user to /dashboard after successful login', async () => {
     const res = await request.agent(app)
       .get('/api/v1/github/callback?code=42')
       .redirects(1);
