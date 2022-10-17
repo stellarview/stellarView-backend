@@ -36,65 +36,73 @@ describe('quiz-routes', () => {
     pool.end();
   });
 
-  it('should return the list of quiz questions', async () => {
+  it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/node');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'node', level: 1, question: 'What is a jwt?' }
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/javascript');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/html');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/css');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/react');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/node');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes');
+    const res = await agent.get('/api/v1/quizzes/express');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+    ];
+    expect(res.body).toEqual(expected);
+  });
+  it('should return the list of quiz questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quizzes/dsa');
+    const expected = [
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });

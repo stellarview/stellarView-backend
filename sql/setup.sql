@@ -44,7 +44,7 @@ total_points)
 
 
 INSERT INTO questions(category, level, question, correct_hash)
-VALUES ('Node.js', 1, 'What is a jwt?', 'JSON Web Token');
+VALUES ('node', 1, 'What is a jwt?', 'JSON Web Token');
 
 
 -- Inserts for question choices
