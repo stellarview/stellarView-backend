@@ -38,7 +38,7 @@ describe('quiz-routes', () => {
 
   it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/node');
+    const res = await agent.get('/api/v1/quiz/node');
     const expected = [
       { id: '1', category: 'node', level: 1, question: 'What is a jwt?' }
     ];
@@ -47,7 +47,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/javascript');
+    const res = await agent.get('/api/v1/quiz/javascript');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -56,7 +56,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/html');
+    const res = await agent.get('/api/v1/quiz/html');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -65,7 +65,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/css');
+    const res = await agent.get('/api/v1/quiz/css');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -74,7 +74,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/react');
+    const res = await agent.get('/api/v1/quiz/react');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -83,7 +83,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/node');
+    const res = await agent.get('/api/v1/quiz/node');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -92,7 +92,7 @@ describe('quiz-routes', () => {
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/express');
+    const res = await agent.get('/api/v1/quiz/express');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
@@ -100,7 +100,7 @@ describe('quiz-routes', () => {
   });
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quizzes/dsa');
+    const res = await agent.get('/api/v1/quiz/dsa');
     const expected = [
       { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
     ];
