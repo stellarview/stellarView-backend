@@ -28,7 +28,7 @@ stellarView is a ....
 | Jenna Graham (she/her)        | [LinkedIn](https://www.linkedin.com/in/jenna-lee-graham)        | [Github](https://github.com/jenna-graham)  |
 | Kashi Tamang (they/them)      | [LinkedIn](https://www.linkedin.com/in/kashitamang)             | [Github](https://github.com/kashitamang)   |
 | Brien Thomas (he/him)         | [LinkedIn](https://www.linkedin.com/in/brien-thomas)            | [Github](https://github.com/briensthomas)  |
-| Kat Zaro (she/her)            | [LinkedIn]('https://www.linkedin.com/in/katzaro')               | [GitHub]('https://github.com/kathrynzaro') |
+| Kat Zaro (she/her)            | [LinkedIn](https://www.linkedin.com/in/katzaro)               | [GitHub](https://github.com/kathrynzaro) |
 
 ## Backend API
 
