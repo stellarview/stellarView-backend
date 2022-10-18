@@ -99,29 +99,50 @@ describe('quiz-routes', () => {
     });
   });
   // Change test per test category
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '25',
+      level: 1,
+      category: 'node',
+      choice_one: '$ npm install express',
+      choice_two: '$ node install express',
+      choice_three: '$ install express',
+      choice_four: 'None of the above',
+      question:
+        'Which of the following command is used to install the Node.js express module?',
+    });
   });
   // Change test per test category
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '21',
+      level: 1,
+      category: 'express',
+      choice_one: 'cookie',
+      choice_two: 'cookies',
+      choice_three: 'cookie-parser',
+      choice_four: 'None of the above',
+      question:
+        'Which of the following is a middleware that parses cookies attached to the client request object?',
+    });
   });
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/dsa');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    const res = await agent.get('/api/v1/quiz/dsna');
+    expect(res.body[0]).toEqual({
+      id: '29',
+      level: 1,
+      category: 'dsna',
+      choice_one: 'int arr;',
+      choice_two: 'int arr[10];',
+      choice_three: 'arr{10};',
+      choice_four: 'None of the above',
+      question:
+        'For declaring an array, which of the following way is correct?',
+    });
   });
 });
