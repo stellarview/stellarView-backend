@@ -38,11 +38,13 @@ describe('quiz-routes', () => {
 
   it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/node');
-    const expected = [
-      { id: '1', category: 'node', level: 1, question: 'What is a jwt?' }
-    ];
-    expect(res.body).toEqual(expected);
+    const res = await agent.get('/api/v1/quiz/html');
+    
+    expect(res.body[0]).toEqual({
+      category: 'html',
+      choice_one: "<ol>",
+      
+    });
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {

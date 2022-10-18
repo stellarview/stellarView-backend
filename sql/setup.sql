@@ -36,19 +36,21 @@ CREATE TABLE question_choices (
 );
 
 --  Inserts for Users
-INSERT INTO users (username, email, password_hash, completed_categories, 
-total_points)
-  VALUES ('TestUser', 'testuser@example.com', '123456', array['html_one'], 5);
+INSERT INTO users 
+(username, email, password_hash, completed_categories, total_points)
+VALUES
+('TestUser', 'testuser@example.com', '123456', array['html_one'], 5);
 
 -- Inserts for questions
 
 
-INSERT INTO questions(category, level, question, correct_hash)
-VALUES ('node', 1, 'What is a jwt?', 'JSON Web Token'),
+INSERT INTO questions
+(category, level, question, correct_hash)
+VALUES 
 ('css', 1, 'What are the properties of the box model, in order?', 'hashed: content, padding, border, margin'),
 ('css', 1, 'Which is the univeral selector?', '*'),
 ('css', 1, '#container would select any element with an id of "container"', 'TRUE'),
-('css', 1, 'How would you target a <p> that’s within a <div>?', 'div p'),
+('css', 1, 'How would you target a <p> that`s within a <div>?', 'div p'),
 ('css', 1, 'How would you select an element with a class of container?', '.container'),
 ('html', 1, 'Which HTML tag is used for a numbered list?', '<ol>'),
 ('html', 1, 'HTML tags and elements are the same thing', 'FALSE'),
@@ -68,10 +70,9 @@ VALUES ('node', 1, 'What is a jwt?', 'JSON Web Token'),
 
 -- Inserts for question choices
 
-INSERT INTO question_choices(questions_id, choice_one, choice_two, 
-choice_three, choice_four)
-
-VALUES (1, 'JSON Web Token', 'Jason Derulo', 'Julius Web Token', 'James Webb Telescope'),
+INSERT INTO question_choices 
+(questions_id, choice_one, choice_two, choice_three, choice_four)
+VALUES 
 (1, 'content, padding, border, margin', 'margin, border, padding, content', 'outside, inside, body, border', 'body, border, inside, outside'),
 (2, '*', 'all', 'universal', '#'),
 (3, 'TRUE', 'FALSE', '', ''),
