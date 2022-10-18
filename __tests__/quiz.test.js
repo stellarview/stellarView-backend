@@ -41,13 +41,13 @@ describe('quiz-routes', () => {
     const res = await agent.get('/api/v1/quiz/html');
 
     expect(res.body[0]).toEqual({
+      id: '6',
+      level: 1,
       category: 'html',
       choice_one: '<ol>',
       choice_two: '<ul>',
       choice_three: '<nl>',
       choice_four: '<li>',
-      id: '6',
-      level: 1,
       question: 'Which HTML tag is used for a numbered list?',
     });
   });
@@ -56,30 +56,15 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript');
     expect(res.body[0]).toEqual({
-      category: 'javascript',
-      level: 1,
-      question:
-        'Which method is used to take the last element off of a given array?',
       id: '11',
+      level: 1,
+      category: 'javascript',
       choice_one: 'pop()',
       choice_two: 'shift()',
       choice_three: 'peek()',
       choice_four: 'reduce()',
-    });
-  });
-  // Change test per test category
-  it('should return the list of quiz questions', async () => {
-    const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/html');
-    expect(res.body[0]).toEqual({
-      category: 'html',
-      level: 1,
-      question: 'Which HTML tag is used for a numbered list?',
-      id: '6',
-      choice_one: '<ol>',
-      choice_two: '<ul>',
-      choice_three: '<nl>',
-      choice_four: '<li>',
+      question:
+        'Which method is used to take the last element off of a given array?',
     });
   });
   // Change test per test category
@@ -87,34 +72,34 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css');
     expect(res.body[0]).toEqual({
-      category: 'css',
-      level: 1,
-      question: 'What are the properties of the box model, in order?',
       id: '1',
+      level: 1,
+      category: 'css',
       choice_one: 'content, padding, border, margin',
       choice_two: 'margin, border, padding, content',
       choice_three: 'outside, inside, body, border',
       choice_four: 'body, border, inside, outside',
-    });
-  });
-  // Change test per test category
-  it.only('should return the list of quiz questions', async () => {
-    const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/react');
-    expect(res.body[0]).toEqual({
-      category: 'react',
-      level: 1,
-      question:
-        'Which of the following is used to pass data from a parent component to its children?',
-      id: '16',
-      choice_one: 'props',
-      choice_two: 'genes',
-      choice_three: 'state',
-      choice_four: 'child',
+      question: 'What are the properties of the box model, in order?',
     });
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/react');
+    expect(res.body[0]).toEqual({
+      id: '16',
+      level: 1,
+      category: 'react',
+      choice_one: 'props',
+      choice_two: 'genes',
+      choice_three: 'state',
+      choice_four: 'child',
+      question:
+        'Which of the following is used to pass data from a parent component to its children?',
+    });
+  });
+  // Change test per test category
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
     const expected = [
@@ -123,7 +108,7 @@ describe('quiz-routes', () => {
     expect(res.body).toEqual(expected);
   });
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express');
     const expected = [
@@ -131,7 +116,7 @@ describe('quiz-routes', () => {
     ];
     expect(res.body).toEqual(expected);
   });
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/dsa');
     const expected = [
