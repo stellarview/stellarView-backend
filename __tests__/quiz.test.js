@@ -103,7 +103,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
     expect(res.body[0]).toEqual({
-      id: '25',
+      id: '26',
       level: 1,
       category: 'node',
       choice_one: '$ npm install express',
@@ -134,7 +134,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/dsna');
     expect(res.body[0]).toEqual({
-      id: '29',
+      id: '31',
       level: 1,
       category: 'dsna',
       choice_one: 'int arr;',

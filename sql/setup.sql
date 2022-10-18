@@ -71,14 +71,17 @@ VALUES
 ('express', 1, 'Which of the following command is used to check the current version of NPM?', 'npm --version'),
 ('express', 1, 'Which of the following method requests that the server accept the data enclosed in the request to modify an existing object identified by the URI?', 'PUT'),
 ('express', 1, 'Where are the captured values populated regarding the route parameters?', 'req.params'),
+('express', 1, 'Everything in react is:', 'component'),
 ('node', 1, 'Which of the following command is used to install the Node.js express module?', '$ npm install express'),
 ('node', 1, 'The Node.js modules can be exposed using:', 'exports'),
 ('node', 1, 'Which of the following types of applications can be built using Node.js?', 'All of the above'),
 ('node', 1, 'Which of the following keyword is used to make properties and methods available outside the module file?', 'exports'),
+('node', 1, 'What does NPM stand for?', 'Node Package Manager'),
 ('dsna', 1, 'For declaring an array, which of the following way is correct?', 'int arr[10];'),
 ('dsna', 1, 'How can we describe an array in the best possible way?', 'Container that stores the elements of similar types'),
 ('dsna', 1, 'Which one of the following is the process of inserting an element in the stack?', 'Push'),
-('dsna', 1, 'If the elements 1, 2, 3 and 4 are added in a stack, so what would be the order for the removal?', '4321');
+('dsna', 1, 'If the elements 1, 2, 3 and 4 are added in a stack, so what would be the order for the removal?', '4321'),
+('dsna', 1, 'Which of the following data structure is linear type?', 'All of the above');
 -- Inserts for question choices
 
 INSERT INTO question_choices 
@@ -108,11 +111,14 @@ VALUES
 (22, 'nmp --ver', 'npm --version', 'npm help', 'None of the above'),
 (23, 'GET', 'DELETE', 'PUT', 'POST'),
 (24, 'req.data', 'app.locals', 'req.params', 'All of the above'),
-(25, '$ npm install express', '$ node install express', '$ install express', 'None of the above'),
-(26, 'expose', 'module', 'exports', 'All of the above'),
-(27, 'Web Application', 'Chat Application', 'RESTful Service', 'All of the above'),
-(28, 'import', 'module', 'exports', 'require'),
-(29, 'int arr;', 'int arr[10];', 'arr{10};', 'None of the above'),
-(30, 'The Array shows a hierarchical structure', 'Arrays are immutable', 'Container that stores the elements of similar types', 'The Array is not a data structure'),
-(31, 'Insert', 'Add', 'Push', 'None of the above'),
-(32, '1234', '2134', '4321', 'None of the above');
+(25, 'module', 'component', 'package', 'class'),
+(26, '$ npm install express', '$ node install express', '$ install express', 'None of the above'),
+(27, 'expose', 'module', 'exports', 'All of the above'),
+(28, 'Web Application', 'Chat Application', 'RESTful Service', 'All of the above'),
+(29, 'import', 'module', 'exports', 'require'),
+(30, 'Node Package Manager', 'Node Packet Modifier', 'Node Parser Manager', 'None of the above'),
+(31, 'int arr;', 'int arr[10];', 'arr{10};', 'None of the above'),
+(32, 'The Array shows a hierarchical structure', 'Arrays are immutable', 'Container that stores the elements of similar types', 'The Array is not a data structure'),
+(33, 'Insert', 'Add', 'Push', 'None of the above'),
+(34, '1234', '2134', '4321', 'None of the above'),
+(35, 'Strings', 'lists', 'Queues', 'All of the above');
