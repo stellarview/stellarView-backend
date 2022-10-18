@@ -9,19 +9,19 @@ const mockUser = {
   email: 'test@example.com',
   password: '12345',
   completed_categories: [''],
-  total_points: '0'
+  total_points: '0',
 };
 
 const registerAndLogin = async (userProps = {}) => {
   const password = userProps.password ?? mockUser.password;
-  
+
   // Create an "agent" that gives us the ability
   // to store cookies between requests in a test
   const agent = request.agent(app);
-  
+
   // Create a user to sign in with
   const user = await UserService.create({ ...mockUser, ...userProps });
-  
+
   // ...then sign in
   const { email } = user;
   await agent.post('/api/v1/users/sessions').send({ email, password });
@@ -39,11 +39,16 @@ describe('quiz-routes', () => {
   it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/html');
-    
+
     expect(res.body[0]).toEqual({
       category: 'html',
-      choice_one: "<ol>",
-      
+      choice_one: '<ol>',
+      choice_two: '<ul>',
+      choice_three: '<nl>',
+      choice_four: '<li>',
+      id: '6',
+      level: 1,
+      question: 'Which HTML tag is used for a numbered list?',
     });
   });
   // Change test per test category
@@ -51,7 +56,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -60,7 +65,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/html');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -69,7 +74,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -78,7 +83,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -87,7 +92,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -96,7 +101,7 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
@@ -104,9 +109,8 @@ describe('quiz-routes', () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/dsa');
     const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' } // Change as needed
+      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
     ];
     expect(res.body).toEqual(expected);
   });
-
 });
