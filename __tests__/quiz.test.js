@@ -41,83 +41,114 @@ describe('quiz-routes', () => {
     const res = await agent.get('/api/v1/quiz/html');
 
     expect(res.body[0]).toEqual({
+      id: '6',
+      level: 1,
       category: 'html',
       choice_one: '<ol>',
       choice_two: '<ul>',
       choice_three: '<nl>',
       choice_four: '<li>',
-      id: '6',
-      level: 1,
       question: 'Which HTML tag is used for a numbered list?',
     });
   });
+
   // Change test per test category
-  it.only('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript');
     expect(res.body[0]).toEqual({
-      category: 'javascript',
-      level: 1,
-      question:
-        'Which method is used to take the last element off of a given array?',
       id: '11',
+      level: 1,
+      category: 'javascript',
       choice_one: 'pop()',
       choice_two: 'shift()',
       choice_three: 'peek()',
       choice_four: 'reduce()',
+      question:
+        'Which method is used to take the last element off of a given array?',
     });
   });
-  // Change test per test category
-  it('should return the list of quiz questions', async () => {
-    const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/html');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
-  });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '1',
+      level: 1,
+      category: 'css',
+      choice_one: 'content, padding, border, margin',
+      choice_two: 'margin, border, padding, content',
+      choice_three: 'outside, inside, body, border',
+      choice_four: 'body, border, inside, outside',
+      question: 'What are the properties of the box model, in order?',
+    });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '16',
+      level: 1,
+      category: 'react',
+      choice_one: 'props',
+      choice_two: 'genes',
+      choice_three: 'state',
+      choice_four: 'child',
+      question:
+        'Which of the following is used to pass data from a parent component to its children?',
+    });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '25',
+      level: 1,
+      category: 'node',
+      choice_one: '$ npm install express',
+      choice_two: '$ node install express',
+      choice_three: '$ install express',
+      choice_four: 'None of the above',
+      question:
+        'Which of the following command is used to install the Node.js express module?',
+    });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      id: '21',
+      level: 1,
+      category: 'express',
+      choice_one: 'cookie',
+      choice_two: 'cookies',
+      choice_three: 'cookie-parser',
+      choice_four: 'None of the above',
+      question:
+        'Which of the following is a middleware that parses cookies attached to the client request object?',
+    });
   });
+  
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/dsa');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    const res = await agent.get('/api/v1/quiz/dsna');
+    expect(res.body[0]).toEqual({
+      id: '29',
+      level: 1,
+      category: 'dsna',
+      choice_one: 'int arr;',
+      choice_two: 'int arr[10];',
+      choice_three: 'arr{10};',
+      choice_four: 'None of the above',
+      question:
+        'For declaring an array, which of the following way is correct?',
+    });
   });
 });
