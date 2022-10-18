@@ -9,7 +9,7 @@ CREATE TABLE users (
   email VARCHAR,
   password_hash VARCHAR NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  completed_categories VARCHAR [],
+  completed_categories VARCHAR[] DEFAULT ARRAY[]::VARCHAR[],
   total_points BIGINT
 );
 
