@@ -36,7 +36,7 @@ describe('quiz-routes', () => {
     pool.end();
   });
 
-  it.only('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/html');
 
@@ -52,13 +52,20 @@ describe('quiz-routes', () => {
     });
   });
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      category: 'javascript',
+      level: 1,
+      question:
+        'Which method is used to take the last element off of a given array?',
+      id: '11',
+      choice_one: 'pop()',
+      choice_two: 'shift()',
+      choice_three: 'peek()',
+      choice_four: 'reduce()',
+    });
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
