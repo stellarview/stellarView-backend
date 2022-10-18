@@ -48,7 +48,7 @@ INSERT INTO questions
 (category, level, question, correct_hash)
 VALUES 
 ('css', 1, 'What are the properties of the box model, in order?', 'hashed: content, padding, border, margin'),
-('css', 1, 'Which is the univeral selector?', '*'),
+('css', 1, 'Which is the universal selector?', '*'),
 ('css', 1, '#container would select any element with an id of "container"', 'TRUE'),
 ('css', 1, 'How would you target a <p> that`s within a <div>?', 'div p'),
 ('css', 1, 'How would you select an element with a class of container?', '.container'),

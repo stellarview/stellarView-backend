@@ -52,7 +52,7 @@ describe('quiz-routes', () => {
     });
   });
   // Change test per test category
-  it.only('should return the list of quiz questions', async () => {
+  it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript');
     expect(res.body[0]).toEqual({
@@ -71,28 +71,47 @@ describe('quiz-routes', () => {
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/html');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      category: 'html',
+      level: 1,
+      question: 'Which HTML tag is used for a numbered list?',
+      id: '6',
+      choice_one: '<ol>',
+      choice_two: '<ul>',
+      choice_three: '<nl>',
+      choice_four: '<li>',
+    });
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      category: 'css',
+      level: 1,
+      question: 'What are the properties of the box model, in order?',
+      id: '1',
+      choice_one: 'content, padding, border, margin',
+      choice_two: 'margin, border, padding, content',
+      choice_three: 'outside, inside, body, border',
+      choice_four: 'body, border, inside, outside',
+    });
   });
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.only('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react');
-    const expected = [
-      { id: '1', category: 'Node.js', level: 1, question: 'What is a jwt?' }, // Change as needed
-    ];
-    expect(res.body).toEqual(expected);
+    expect(res.body[0]).toEqual({
+      category: 'react',
+      level: 1,
+      question:
+        'Which of the following is used to pass data from a parent component to its children?',
+      id: '16',
+      choice_one: 'props',
+      choice_two: 'genes',
+      choice_three: 'state',
+      choice_four: 'child',
+    });
   });
   // Change test per test category
   it('should return the list of quiz questions', async () => {
