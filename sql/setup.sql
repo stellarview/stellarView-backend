@@ -39,7 +39,7 @@ CREATE TABLE question_choices (
 INSERT INTO users 
 (username, email, password_hash, completed_categories, total_points)
 VALUES
-('TestUser', 'testuser@example.com', '123456', array['html_one'], 5);
+('TestUser', 'testuser23@example.com', '$2b$10$eY3Akf8nRv0dQHO4o8.8FubY2O7ArGhQ/fjj50T2QuX.wyyeC7w0e', array['html_one'], 5);
 
 -- Inserts for questions
 
