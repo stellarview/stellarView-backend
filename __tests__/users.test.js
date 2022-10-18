@@ -45,8 +45,20 @@ describe('user routes', () => {
       id: expect.any(String),
       username,
       email,
-      completed_categories: null, 
+      completed_categories: expect.any(Array), 
       total_points
+    });
+  });
+
+  it('get user by id, return all information about the user', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/users/1');
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      username: expect.any(String),
+      email: expect.any(String),
+      completed_categories: expect.any(Array),
+      total_points: expect.any(String)
     });
   });
 
