@@ -51,6 +51,7 @@ describe('quiz-routes', () => {
       question: 'Which HTML tag is used for a numbered list?',
     });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
@@ -67,6 +68,7 @@ describe('quiz-routes', () => {
         'Which method is used to take the last element off of a given array?',
     });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
@@ -82,6 +84,7 @@ describe('quiz-routes', () => {
       question: 'What are the properties of the box model, in order?',
     });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
@@ -98,6 +101,7 @@ describe('quiz-routes', () => {
         'Which of the following is used to pass data from a parent component to its children?',
     });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
@@ -114,6 +118,7 @@ describe('quiz-routes', () => {
         'Which of the following command is used to install the Node.js express module?',
     });
   });
+
   // Change test per test category
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
@@ -130,6 +135,7 @@ describe('quiz-routes', () => {
         'Which of the following is a middleware that parses cookies attached to the client request object?',
     });
   });
+  
   it('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/dsna');
