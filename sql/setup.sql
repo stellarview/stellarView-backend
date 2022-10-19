@@ -20,7 +20,7 @@ CREATE TABLE questions (
   category VARCHAR,
   level INT,
   question VARCHAR,
-  correct_hash VARCHAR NOT NULL
+  correct_answer VARCHAR NOT NULL
 );
 
 -- table for question_choices
@@ -45,9 +45,9 @@ VALUES
 
 
 INSERT INTO questions
-(category, level, question, correct_hash)
+(category, level, question, correct_answer)
 VALUES 
-('css', 1, 'What are the properties of the box model, in order?', 'hashed: content, padding, border, margin'),
+('css', 1, 'What are the properties of the box model, in order?', 'content, padding, border, margin'),
 ('css', 1, 'Which is the universal selector?', '*'),
 ('css', 1, '#container would select any element with an id of "container"', 'TRUE'),
 ('css', 1, 'How would you target a <p> that`s within a <div>?', 'div p'),
@@ -77,7 +77,7 @@ VALUES
 ('node', 1, 'Which of the following types of applications can be built using Node.js?', 'All of the above'),
 ('node', 1, 'Which of the following keyword is used to make properties and methods available outside the module file?', 'exports'),
 ('node', 1, 'What does NPM stand for?', 'Node Package Manager'),
-('dsna', 1, 'For declaring an array, which of the following way is correct?', 'int arr[10];'),
+('dsna', 1, 'For declaring an array, which of the following ways is correct?', 'int arr[10];'),
 ('dsna', 1, 'How can we describe an array in the best possible way?', 'Container that stores the elements of similar types'),
 ('dsna', 1, 'Which one of the following is the process of inserting an element in the stack?', 'Push'),
 ('dsna', 1, 'If the elements 1, 2, 3 and 4 are added in a stack, so what would be the order for the removal?', '4321'),

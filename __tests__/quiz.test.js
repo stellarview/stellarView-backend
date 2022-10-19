@@ -49,6 +49,7 @@ describe('quiz-routes', () => {
       choice_three: '<nl>',
       choice_four: '<li>',
       question: 'Which HTML tag is used for a numbered list?',
+      correct_answer: '<ol>',
     });
   });
   // Change test per test category
@@ -65,6 +66,7 @@ describe('quiz-routes', () => {
       choice_four: 'reduce()',
       question:
         'Which method is used to take the last element off of a given array?',
+      correct_answer: 'pop()',
     });
   });
   // Change test per test category
@@ -80,6 +82,7 @@ describe('quiz-routes', () => {
       choice_three: 'outside, inside, body, border',
       choice_four: 'body, border, inside, outside',
       question: 'What are the properties of the box model, in order?',
+      correct_answer: 'content, padding, border, margin',
     });
   });
   // Change test per test category
@@ -96,6 +99,7 @@ describe('quiz-routes', () => {
       choice_four: 'child',
       question:
         'Which of the following is used to pass data from a parent component to its children?',
+      correct_answer: 'props',
     });
   });
   // Change test per test category
@@ -112,6 +116,7 @@ describe('quiz-routes', () => {
       choice_four: 'None of the above',
       question:
         'Which of the following command is used to install the Node.js express module?',
+      correct_answer: '$ npm install express',
     });
   });
   // Change test per test category
@@ -128,6 +133,7 @@ describe('quiz-routes', () => {
       choice_four: 'None of the above',
       question:
         'Which of the following is a middleware that parses cookies attached to the client request object?',
+      correct_answer: 'cookie-parser',
     });
   });
   it('should return the list of quiz questions', async () => {
@@ -142,7 +148,8 @@ describe('quiz-routes', () => {
       choice_three: 'arr{10};',
       choice_four: 'None of the above',
       question:
-        'For declaring an array, which of the following way is correct?',
+        'For declaring an array, which of the following ways is correct?',
+      correct_answer: 'int arr[10];',
     });
   });
 });
