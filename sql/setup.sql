@@ -106,7 +106,17 @@ VALUES
 ('express', 2, 'Which of the following is NOT a third-party middleware:', 'Json'),
 ('express', 2, 'What are the steps used for Error Handling in Express.js?', 'Both A and B'),
 ('express', 2, 'What functions are arguments available to Express JS?:', 'All the above mentioned'),
-('express', 2, 'Express JS is written only in', ' JavaScript');
+('express', 2, 'Express JS is written only in', ' JavaScript'),
+('node', 2, 'Which of the following frameworks is used majorly in Node.js?', 'Express.js'),
+('node', 2, 'Which of the following is the correct syntax to initiate the Node.js File?', 'node filename.js'),
+('node', 2, 'What are the advantages of using promises instead of callbacks?', 'All of the above'),
+('node', 2, 'Where can Node.js be used?', 'All of the above'),
+('node', 2, 'Which of the following is a Node.js web application architecture?', 'All of the above'),
+('dsna', 2, 'Which data structure is mainly used for implementing the recursive algorithm?', 'Stack'),
+('dsna', 2, 'The minimum number of stacks required to implement a stack is __', '2'),
+('dsna', 2, 'What is the maximum number of children that a node can have in a binary tree?', '2'),
+('dsna', 2, 'A linear data structure in which insertion and deletion operations can be performed from both the ends is___', 'Deque'),
+('dsna', 2, 'The time complexity of enqueue operation in Queue is __', 'O(1)');
 -- Inserts for question choices
 
 INSERT INTO question_choices 
@@ -172,4 +182,14 @@ VALUES
 (57, 'Json', 'Cookie-parser', 'Sequelize', 'Cors'),
 (58, 'Create a Middleware', 'Install Error Handler Middleware', 'Both A and B', 'None'),
 (59, ' Req', 'Res', ' Next', 'All the above mentioned'),
-(60, 'JavaScript', ' C programming', ' C++', 'All the above');
+(60, 'JavaScript', ' C programming', ' C++', 'All the above'),
+(61, 'Json.js', 'CORS.js', 'Express.js', 'Curl.js'),
+(62, 'filename.js', 'java script filename.js', 'node filename.js', 'node filename'),
+(63, 'The control flow of asynchronous logic is more specified and structured', 'The coupling is low', 'Built-in error handling', 'All of the above'),
+(64, 'Network application', 'Server–Client applications', 'Responsive web apps', 'All of the above'),
+(65, 'Client Layer', ' Server Layer', 'Data Layer', 'All of the above'),
+(66, 'Queue', 'Stack', 'Binary tree', 'Linked list'),
+(67, '1', '2', '3', '4'),
+(68, '3', '1', '4', '2'),
+(69, 'Queue', 'Deque', 'Priority queue', 'Circular queue'),
+(70, 'O(1)', 'O(n)', 'O(logn)', 'O(nlogn)');
