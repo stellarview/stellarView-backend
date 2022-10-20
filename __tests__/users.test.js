@@ -43,20 +43,21 @@ describe('user routes', () => {
       id: expect.any(String),
       username,
       email,
-      completed_categories: expect.any(Array), 
-      total_points: expect.any(Number)
+      completed_categories: [], 
+      total_points: 0
     });
   });
 
   it('get user by id, return all information about the user', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/1');
+    
     expect(res.body).toEqual({
       id: expect.any(String),
       username: expect.any(String),
       email: expect.any(String),
-      completed_categories: expect.any(Array),
-      total_points: expect.any(Number)
+      completed_categories: [],
+      total_points: 0
     });
   });
 
@@ -65,10 +66,9 @@ describe('user routes', () => {
       completed_categories: 'css', 
       total_points: 10
     };
-
     const [agent] = await registerAndLogin();
-
     const res = await agent.patch('/api/v1/users/2').send(updates);
+
     expect(res.body.total_points).toEqual(10);
     expect(res.body.completed_categories).toEqual(['css']);
 
@@ -123,7 +123,9 @@ describe('user routes', () => {
     await agent.post('/api/v1/users').send({
       email: 'admin',
       password: '1234',
-      username: 'admin'
+      username: 'admin',
+      completed_categories: [],
+      total_points: 0
     });
     // sign in the user
     await agent
