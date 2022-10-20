@@ -46,7 +46,7 @@ describe('user routes', () => {
       username,
       email,
       completed_categories: expect.any(Array), 
-      total_points: expect.any(String)
+      total_points: expect.any(Number)
     });
   });
 
@@ -58,7 +58,7 @@ describe('user routes', () => {
       username: expect.any(String),
       email: expect.any(String),
       completed_categories: expect.any(Array),
-      total_points: expect.any(String)
+      total_points: expect.any(Number)
     });
   });
 
@@ -71,7 +71,7 @@ describe('user routes', () => {
     const [agent] = await registerAndLogin();
 
     const res = await agent.patch('/api/v1/users/2').send(updates);
-    expect(res.body.total_points).toEqual('10');
+    expect(res.body.total_points).toEqual(10);
     expect(res.body.completed_categories).toEqual(['css']);
 
     const newUpdate = {
@@ -80,7 +80,7 @@ describe('user routes', () => {
     };
     const secondUpdate = await agent.patch('/api/v1/users/2').send(newUpdate);
 
-    expect(secondUpdate.body.total_points).toEqual('20');
+    expect(secondUpdate.body.total_points).toEqual(20);
     expect(secondUpdate.body.completed_categories).toEqual(['css', 'react']);
 
   });
@@ -127,7 +127,7 @@ describe('user routes', () => {
       password: '1234',
       username: 'admin',
       completed_categories: [],
-      total_points: '0'
+      total_points: 0
     });
     // sign in the user
     await agent

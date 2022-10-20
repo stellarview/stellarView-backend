@@ -9,7 +9,7 @@ const mockUser = {
   email: 'test@example.com',
   password: '12345',
   completed_categories: [''],
-  total_points: '0',
+  total_points: 0,
 };
 
 const registerAndLogin = async (userProps = {}) => {
