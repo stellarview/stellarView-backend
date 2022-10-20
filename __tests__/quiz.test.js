@@ -110,7 +110,7 @@ describe('quiz-routes', () => {
   it('should return the list of javascript level 2 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript/2');
-    console.log('res.body[0]', res.body[0]);
+
     expect(res.body[0]).toEqual({
       id: '46',
       level: 2,
@@ -128,7 +128,7 @@ describe('quiz-routes', () => {
   it('should return the list of javascript level 3 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript/3');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
       id: '81',
       level: 3,
@@ -273,7 +273,7 @@ describe('quiz-routes', () => {
   it('should return the list of node level 2 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node/2');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
       id: '61',
       level: 2,
@@ -288,29 +288,29 @@ describe('quiz-routes', () => {
     });
   });
  
-  it.only('should return the list of node level 3 questions', async () => {
+  it('should return the list of node level 3 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node/3');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
-      id: '26',
+      id: '96',
       level: 3,
       category: 'node',
-      choice_one: '$ npm install express',
-      choice_two: '$ node install express',
-      choice_three: '$ install express',
-      choice_four: 'none of these',
+      choice_one: 'asynchronous',
+      choice_two: 'unified programming language and data type',
+      choice_three: 'generally fast',
+      choice_four: 'all of these',
       question:
-        'Which of the following command is used to install the Node.js express module?',
-      correct_answer: '$ npm install express',
+        '___is an advantage of using Node.js.',
+      correct_answer: 'all of these',
     });
   });
- 
 
   // Change test per test category
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of express level 1 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/express');
+    const res = await agent.get('/api/v1/quiz/express/1');
+    
     expect(res.body[0]).toEqual({
       id: '21',
       level: 1,
@@ -324,10 +324,46 @@ describe('quiz-routes', () => {
       correct_answer: 'cookie-parser',
     });
   });
-  
-  it.skip('should return the list of quiz questions', async () => {
+   
+  it('should return the list of express level 2 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/dsna');
+    const res = await agent.get('/api/v1/quiz/express/2');
+    
+    expect(res.body[0]).toEqual({
+      id: '56',
+      level: 2,
+      category: 'express',
+      choice_one: 'error-handling middleware',
+      choice_two: 'built-in middleware',
+      choice_three: 'third-party middleware',
+      choice_four: 'all of these',
+      question: 'Which of the following is NOT a type of Middleware?',
+      correct_answer: 'all of these',
+    });
+  });
+   
+  it('should return the list of express level 3 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/express/3');
+    
+    expect(res.body[0]).toEqual({
+      id: '91',
+      level: 3,
+      category: 'express',
+      choice_one: 'true',
+      choice_two: 'false',
+      choice_three: null,
+      choice_four: null,
+      question:
+      'In ExpressJS there are two ways used for configuring the properties, with process.ENV and with require.js.',
+      correct_answer: 'true',
+    });
+  });
+
+  it('should return the list of dsna level 1 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/dsna/1');
+
     expect(res.body[0]).toEqual({
       id: '31',
       level: 1,
@@ -341,4 +377,39 @@ describe('quiz-routes', () => {
       correct_answer: 'int arr[10];',
     });
   });
+   
+  it('should return the list of dsna level 2 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/dsna/2');
+    
+    expect(res.body[0]).toEqual({
+      id: '66',
+      level: 2,
+      category: 'dsna',
+      choice_one: 'queue',
+      choice_two: 'stack',
+      choice_three: 'binary tree',
+      choice_four: 'linked list',
+      question:
+      'Which data structure is mainly used for implementing the recursive algorithm?',
+      correct_answer: 'stack',
+    });
+  });
+   
+  it('should return the list of dsna level 3 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/dsna/3');
+    
+    expect(res.body[0]).toEqual({
+      id: '101',
+      level: 3,
+      category: 'dsna',
+      choice_one: '0',
+      choice_two: '1',
+      choice_three: '1st',
+      choice_four: '-1',
+      question: 'The first index position of an array is always',
+      correct_answer: '0',
+    });
+  }); 
 });
