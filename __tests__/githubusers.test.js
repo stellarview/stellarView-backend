@@ -15,7 +15,7 @@ describe('backend-express-template routes', () => {
     pool.end();
   });
 
-  it.skip('#GET should redirect user to the verification route', async () => {
+  it('#GET should redirect user to the verification route', async () => {
     const response = await agent
       .get('/api/v1/github/callback?code=42')
       .redirects(1);
@@ -30,7 +30,7 @@ describe('backend-express-template routes', () => {
     });
   });
 
-  it.skip('#GET redirects user to /dashboard after successful login', async () => {
+  it('#GET redirects user to /dashboard after successful login', async () => {
     const res = await request.agent(app)
       .get('/api/v1/github/callback?code=42')
       .redirects(1);
@@ -38,7 +38,7 @@ describe('backend-express-template routes', () => {
     expect(res.req.path).toEqual('/api/v1/users/me');
   });
 
-  it.skip('#DELETE should sign out a user', async () => {
+  it('#DELETE should sign out a user', async () => {
     await agent
       .get('/api/v1/github/callback?code=42')
       .redirects(1);  

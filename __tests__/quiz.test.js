@@ -411,7 +411,7 @@ describe('quiz-routes', () => {
     });
   }); 
 
-  it.only('should return a list of all categories and levels of questions', async () => {
+  it('should return a list of all categories and levels of questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz');
 
@@ -420,7 +420,7 @@ describe('quiz-routes', () => {
       'level': 1 
     });
     expect(res.body[5]).toEqual({
-      'category': 'react',
+      'category': 'dsna',
       'level': 3
     });
   });
