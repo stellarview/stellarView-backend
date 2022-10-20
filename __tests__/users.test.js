@@ -9,8 +9,8 @@ const mockUser = {
   username: 'User',
   email: 'test@example.com',
   password: '12345',
-  completed_categories: [''],
-  total_points: '0'
+  completed_categories: ['html'],
+  total_points: 0
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -58,8 +58,23 @@ describe('user routes', () => {
       username: expect.any(String),
       email: expect.any(String),
       completed_categories: expect.any(Array),
-      total_points: expect.any(String)
+      total_points: expect.any(Number)
     });
+  });
+
+  it.only('should update a user', async () => {
+    const updates = {
+      completed_categories: 'css', 
+      total_points: 10
+    };
+
+    await request.agent(app).post('/api/v1/users/sessions').send(mockUser);
+
+    const res = await request.agent(app).patch('/api/v1/users/2').send(updates);
+    console.log('res', res.body);
+    console.log('updates', updates);
+    expect(res.body.total_points).toEqual(20);
+    expect(res.body.completed_categories).toEqual('css, html_one');
   });
 
   it('signs in an existing user with an email', async () => {
