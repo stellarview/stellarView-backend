@@ -10,7 +10,7 @@ CREATE TABLE users (
   password_hash VARCHAR NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   completed_categories VARCHAR[] DEFAULT ARRAY[]::VARCHAR[],
-  total_points BIGINT
+  total_points INT DEFAULT 0
 );
 
 -- table for questions
