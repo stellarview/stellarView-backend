@@ -7,9 +7,7 @@ const UserService = require('../lib/services/UserService');
 const mockUser = {
   username: 'User',
   email: 'test@example.com',
-  password: '12345',
-  completed_categories: [''],
-  total_points: 0,
+  password: '12345'
 };
 
 const registerAndLogin = async (userProps = {}) => {
