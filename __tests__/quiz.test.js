@@ -164,7 +164,7 @@ describe('quiz-routes', () => {
   it('should return the list of css level 2 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css/2');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
       id: '36',
       level: 2,
@@ -182,7 +182,7 @@ describe('quiz-routes', () => {
   it('should return the list of css level 3 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css/3');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
       id: '71',
       level: 3,
@@ -215,46 +215,47 @@ describe('quiz-routes', () => {
     });
   });
   
-  it.only('should return the list of react level 2 questions', async () => {
+  it('should return the list of react level 2 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react/2');
-    console.log('res.body[0]', res.body[0]);
+    
     expect(res.body[0]).toEqual({
       id: '51',
       level: 2,
       category: 'react',
-      choice_one: 'props',
-      choice_two: 'genes',
+      choice_one: 'services & components',
+      choice_two: 'state & props',
       choice_three: 'state & services',
       choice_four: 'state & component',
       question:
-        'Which of the following is used to pass data from a parent component to its children?',
-      correct_answer: 'props',
+        'What are the two ways to handle data in React?',
+      correct_answer: 'state & props',
     });
   });
 
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of react level 3 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/react');
+    const res = await agent.get('/api/v1/quiz/react/3');
+    
     expect(res.body[0]).toEqual({
-      id: '16',
-      level: 1,
+      id: '86',
+      level: 3,
       category: 'react',
-      choice_one: 'props',
-      choice_two: 'genes',
-      choice_three: 'state',
-      choice_four: 'child',
+      choice_one: 'Link',
+      choice_two: 'Route',
+      choice_three: 'Switch',
+      choice_four: 'Router',
       question:
-        'Which of the following is used to pass data from a parent component to its children?',
-      correct_answer: 'props',
+        'In React Router v6, which of these is deprecated?',
+      correct_answer: 'Switch',
     });
   });
-
 
   // Change test per test category
-  it.skip('should return the list of quiz questions', async () => {
+  it('should return the list of node level 1 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/node');
+    const res = await agent.get('/api/v1/quiz/node/1');
+    
     expect(res.body[0]).toEqual({
       id: '26',
       level: 1,
@@ -268,6 +269,43 @@ describe('quiz-routes', () => {
       correct_answer: '$ npm install express',
     });
   });
+ 
+  it('should return the list of node level 2 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/node/2');
+    console.log('res.body[0]', res.body[0]);
+    expect(res.body[0]).toEqual({
+      id: '61',
+      level: 2,
+      category: 'node',
+      choice_one: 'JSON.js',
+      choice_two: 'CORS.js',
+      choice_three: 'Express.js',
+      choice_four: 'Curl.js',
+      question:
+        'Which of the following frameworks is used majorly in Node.js?',
+      correct_answer: 'Express.js',
+    });
+  });
+ 
+  it.only('should return the list of node level 3 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/node/3');
+    console.log('res.body[0]', res.body[0]);
+    expect(res.body[0]).toEqual({
+      id: '26',
+      level: 3,
+      category: 'node',
+      choice_one: '$ npm install express',
+      choice_two: '$ node install express',
+      choice_three: '$ install express',
+      choice_four: 'none of these',
+      question:
+        'Which of the following command is used to install the Node.js express module?',
+      correct_answer: '$ npm install express',
+    });
+  });
+ 
 
   // Change test per test category
   it.skip('should return the list of quiz questions', async () => {
