@@ -36,9 +36,9 @@ describe('quiz-routes', () => {
     pool.end();
   });
 
-  it('should return the list of quiz questions', async () => {
+  it('should return the list of html level 1 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/html');
+    const res = await agent.get('/api/v1/quiz/html/1');
 
     expect(res.body[0]).toEqual({
       id: '6',
@@ -53,10 +53,45 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it('should return the list of html level 2 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/javascript');
+    const res = await agent.get('/api/v1/quiz/html/2');
+
+    expect(res.body[0]).toEqual({
+      id: '41',
+      level: 2,
+      category: 'html',
+      choice_one: '<track>',
+      choice_two: '<video>',
+      choice_three: '<slider>',
+      choice_four: '<source>',
+      question: 'Which of the following is not an HTML5 tag?',
+      correct_answer: '<slider>',
+    });
+  });
+
+  it('should return the list of html level 3 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/html/3');
+
+    expect(res.body[0]).toEqual({
+      id: '76',
+      level: 3,
+      category: 'html',
+      choice_one: 'type',
+      choice_two: 'article',
+      choice_three: 'id',
+      choice_four: 'class',
+      question: 'Which attribute specifies a unique alphanumeric identifier to be associated with an element?',
+      correct_answer: 'id',
+    });
+  });
+
+  // Change test per test category
+  it('should return the list of javascript level 1 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/javascript/1');
+
     expect(res.body[0]).toEqual({
       id: '11',
       level: 1,
@@ -70,11 +105,80 @@ describe('quiz-routes', () => {
       correct_answer: 'pop()',
     });
   });
+  
+  it('should return the list of javascript level 2 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/javascript/2');
+    console.log('res.body[0]', res.body[0]);
+    expect(res.body[0]).toEqual({
+      id: '46',
+      level: 2,
+      category: 'javascript',
+      choice_one: '?',
+      choice_two: ';',
+      choice_three: '-',
+      choice_four: '+',
+      question:
+        'Which of the following is a ternary operator?',
+      correct_answer: '?',
+    });
+  });
+
+  it('should return the list of javascript level 3 questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/javascript/3');
+    console.log('res.body[0]', res.body[0]);
+    expect(res.body[0]).toEqual({
+      id: '81',
+      level: 3,
+      category: 'javascript',
+      choice_one: 'they are the same',
+      choice_two: 'uninitialized value; absence of value',
+      choice_three: 'absence of value; uninitialized variable',
+      choice_four: 'none of these',
+      question:
+        'What is the difference between null and undefined?',
+      correct_answer: 'absence of value; uninitialized variable',
+    });
+  });
 
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it('should return the list of css level 1 questions', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/quiz/css');
+    const res = await agent.get('/api/v1/quiz/css/1');
+
+    expect(res.body[0]).toEqual({
+      id: '1',
+      level: 1,
+      category: 'css',
+      choice_one: 'content, padding, border, margin',
+      choice_two: 'border, content, margin, padding',
+      choice_three: 'outside, inside, body, border',
+      choice_four: 'body, border, inside, outside',
+      question: 'What are the properties of the box model, in order?',
+      correct_answer: 'content, padding, border, margin',
+    });
+  });
+
+  it.only('should return the list of quiz questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/css/2');
+    expect(res.body[0]).toEqual({
+      id: '1',
+      level: 1,
+      category: 'css',
+      choice_one: 'content, padding, border, margin',
+      choice_two: 'border, content, margin, padding',
+      choice_three: 'outside, inside, body, border',
+      choice_four: 'body, border, inside, outside',
+      question: 'How do you select the elements with the class name "example"?',
+      correct_answer: 'content, padding, border, margin',
+    });
+  });
+  
+  it.skip('should return the list of quiz questions', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/quiz/css/3');
     expect(res.body[0]).toEqual({
       id: '1',
       level: 1,
@@ -89,7 +193,7 @@ describe('quiz-routes', () => {
   });
 
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react');
     expect(res.body[0]).toEqual({
@@ -107,7 +211,7 @@ describe('quiz-routes', () => {
   });
 
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node');
     expect(res.body[0]).toEqual({
@@ -125,7 +229,7 @@ describe('quiz-routes', () => {
   });
 
   // Change test per test category
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express');
     expect(res.body[0]).toEqual({
@@ -142,7 +246,7 @@ describe('quiz-routes', () => {
     });
   });
   
-  it('should return the list of quiz questions', async () => {
+  it.skip('should return the list of quiz questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/dsna');
     expect(res.body[0]).toEqual({
