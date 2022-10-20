@@ -39,14 +39,14 @@ describe('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
-    const { username, email, total_points } = mockUser;
+    const { username, email } = mockUser;
 
     expect(res.body).toEqual({
       id: expect.any(String),
       username,
       email,
       completed_categories: expect.any(Array), 
-      total_points
+      total_points: expect.any(String)
     });
   });
 
@@ -58,7 +58,7 @@ describe('user routes', () => {
       username: expect.any(String),
       email: expect.any(String),
       completed_categories: expect.any(Array),
-      total_points: expect.any(Number)
+      total_points: expect.any(String)
     });
   });
 
