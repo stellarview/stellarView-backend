@@ -414,7 +414,7 @@ describe('quiz-routes', () => {
   it.only('should return a list of all categories and levels of questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz');
-    console.log('res.body', res.body[5]);
+
     expect(res.body[0]).toEqual({
       'category': 'css',
       'level': 1 
