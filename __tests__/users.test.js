@@ -68,13 +68,23 @@ describe('user routes', () => {
       total_points: 10
     };
 
-    await request.agent(app).post('/api/v1/users/sessions').send(mockUser);
+    const [agent] = await registerAndLogin();
 
-    const res = await request.agent(app).patch('/api/v1/users/2').send(updates);
+    const res = await agent.patch('/api/v1/users/2').send(updates);
     console.log('res', res.body);
     console.log('updates', updates);
-    expect(res.body.total_points).toEqual(20);
-    expect(res.body.completed_categories).toEqual('css, html_one');
+    expect(res.body.total_points).toEqual('10');
+    expect(res.body.completed_categories).toEqual(['css']);
+
+    const newUpdate = {
+      completed_categories: 'react',
+      total_points: 10
+    };
+    const secondUpdate = await agent.patch('/api/v1/users/2').send(newUpdate);
+
+    expect(secondUpdate.body.total_points).toEqual('20');
+    expect(secondUpdate.body.completed_categories).toEqual(['css', 'react']);
+
   });
 
   it('signs in an existing user with an email', async () => {
