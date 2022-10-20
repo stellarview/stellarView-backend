@@ -9,8 +9,8 @@ const mockUser = {
   username: 'User',
   email: 'test@example.com',
   password: '12345',
-  completed_categories: [''],
-  total_points: '0'
+  completed_categories: ['html'],
+  total_points: 0
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -39,14 +39,14 @@ describe('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
-    const { username, email, total_points } = mockUser;
+    const { username, email } = mockUser;
 
     expect(res.body).toEqual({
       id: expect.any(String),
       username,
       email,
       completed_categories: expect.any(Array), 
-      total_points
+      total_points: expect.any(String)
     });
   });
 
@@ -60,6 +60,29 @@ describe('user routes', () => {
       completed_categories: expect.any(Array),
       total_points: expect.any(String)
     });
+  });
+
+  it('should update a user', async () => {
+    const updates = {
+      completed_categories: 'css', 
+      total_points: 10
+    };
+
+    const [agent] = await registerAndLogin();
+
+    const res = await agent.patch('/api/v1/users/2').send(updates);
+    expect(res.body.total_points).toEqual('10');
+    expect(res.body.completed_categories).toEqual(['css']);
+
+    const newUpdate = {
+      completed_categories: 'react',
+      total_points: 10
+    };
+    const secondUpdate = await agent.patch('/api/v1/users/2').send(newUpdate);
+
+    expect(secondUpdate.body.total_points).toEqual('20');
+    expect(secondUpdate.body.completed_categories).toEqual(['css', 'react']);
+
   });
 
   it('signs in an existing user with an email', async () => {
