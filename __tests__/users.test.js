@@ -62,7 +62,7 @@ describe('user routes', () => {
     });
   });
 
-  it.only('should update a user', async () => {
+  it('should update a user', async () => {
     const updates = {
       completed_categories: 'css', 
       total_points: 10
@@ -71,8 +71,6 @@ describe('user routes', () => {
     const [agent] = await registerAndLogin();
 
     const res = await agent.patch('/api/v1/users/2').send(updates);
-    console.log('res', res.body);
-    console.log('updates', updates);
     expect(res.body.total_points).toEqual('10');
     expect(res.body.completed_categories).toEqual(['css']);
 
