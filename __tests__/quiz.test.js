@@ -80,7 +80,7 @@ describe('quiz-routes', () => {
       level: 1,
       category: 'css',
       choice_one: 'content, padding, border, margin',
-      choice_two: 'margin, border, padding, content',
+      choice_two: 'border, content, margin, padding',
       choice_three: 'outside, inside, body, border',
       choice_four: 'body, border, inside, outside',
       question: 'What are the properties of the box model, in order?',
@@ -117,7 +117,7 @@ describe('quiz-routes', () => {
       choice_one: '$ npm install express',
       choice_two: '$ node install express',
       choice_three: '$ install express',
-      choice_four: 'None of the above',
+      choice_four: 'none of these',
       question:
         'Which of the following command is used to install the Node.js express module?',
       correct_answer: '$ npm install express',
@@ -135,7 +135,7 @@ describe('quiz-routes', () => {
       choice_one: 'cookie',
       choice_two: 'cookies',
       choice_three: 'cookie-parser',
-      choice_four: 'None of the above',
+      choice_four: 'none of these',
       question:
         'Which of the following is a middleware that parses cookies attached to the client request object?',
       correct_answer: 'cookie-parser',
@@ -152,7 +152,7 @@ describe('quiz-routes', () => {
       choice_one: 'int arr;',
       choice_two: 'int arr[10];',
       choice_three: 'arr{10};',
-      choice_four: 'None of the above',
+      choice_four: 'none of these',
       question:
         'For declaring an array, which of the following ways is correct?',
       correct_answer: 'int arr[10];',
