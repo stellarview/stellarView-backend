@@ -25,8 +25,8 @@ CREATE TABLE question_choices (
   questions_id BIGINT,
   choice_one VARCHAR NOT NULL,
   choice_two VARCHAR NOT NULL,
-  choice_three VARCHAR DEFAULT NULL,
-  choice_four VARCHAR DEFAULT NULL,
+  choice_three VARCHAR,
+  choice_four VARCHAR,
   FOREIGN KEY (questions_id) REFERENCES questions(id)
 );
 
@@ -143,9 +143,9 @@ VALUES
 
 ('react', 3, 'In React Router v6, which of these is deprecated?', 'Switch'),
 ('react', 3, 'What syntax is used in React to create a `portal`?', '{}'),
-('react', 3, 'Using React without HTML cannot be done with', 'render () { }'),
-('react', 3, 'How do you define constants in React?', 'static'),
-('react', 3, ' Redux forms can:', 'All of these'),
+('react', 3, 'How would you update the state of a component?', 'setState()'),
+('react', 3, 'What is an arrow function and how is it used?', 'a shortened way of writing a function'),
+('react', 3, 'Redux forms can:', 'all of these'),
 
 ('express', 3, 'In ExpressJS there are two ways used for configuring the properties, with process.ENV and with require.js.', 'true'),
 ('express', 3, 'What is the use of Next in ExpressJS?', 'it passes management to a consecutive matching route'),
@@ -170,12 +170,12 @@ INSERT INTO question_choices
 VALUES 
 (1, 'content, padding, border, margin', 'border, content, margin, padding', 'outside, inside, body, border', 'body, border, inside, outside'),
 (2, '*', 'all', 'universal', '#'),
-(3, 'true', 'false', null, null),
+(3, 'true', 'false', '', ''),
 (4, 'div p', 'div, p', '#p', 'p div'),
 (5, '.container', '#container', '*container', 'container.'),
 
 (6, '<ol>', '<ul>', '<nl>', '<li>'),
-(7, 'false', 'true', null, null),
+(7, 'false', 'true', '', ''),
 (8, '<span>', '<body>', '<div>', '<p>'),
 (9, '<br>', '<break>', '<b>', '<lb>'),
 (10, '_blank', '_self', '_parent', '_top'),
@@ -214,7 +214,7 @@ VALUES
 (37, 'hover', 'opacity', 'clearfix', 'overlay'),
 (38, '<link rel=”stylesheet” href=”style.css” />', '<link rel=”stylesheet” src=”style.css” />', '<style rel=”stylesheet” src=”style.css” />', '<style rel=”stylesheet” link=”style.css” />'),
 (39, 'border-spacing', 'border-style', 'border', 'none of these'),
-(40, 'static', 'position', 'fix', 'set'),
+(40, 'a function with arrows', 'a shortened way of writing a function', 'a short function', 'a pointy function'),
 
 (41, '<track>', '<video>', '<slider>', '<source>'),
 (42, '</.......>', '<!......>', '</....../>', '<.......!>'),
@@ -253,39 +253,39 @@ VALUES
 (70, 'O(1)', 'O(n)', 'O(logn)', 'O(nlogn)'),
 
 (71, 'all of these', 'in-line', 'import', 'external style sheet'),
-(72, 'true', 'false', null, null),
+(72, 'true', 'false', '', ''),
 (73, 'H2, h3', 'h2 + h3', 'h2 h3', 'h3, h2'),
 (74, 'element type selector', 'class selector', 'universal selector', 'all of these'),
-(75, 'true', 'false', null, null),
+(75, 'true', 'false', '', ''),
 
 (76, 'type', 'article', 'id', 'class'),
 (77, 'for making content appearance italics', 'to create vertical rule between sections', 'to create a line break', 'to create horizontal rule between sections'),
 (78, '<input type=”text”>', '<input type=”textarea”>', '<input type=”checkbox”>', '<input type=”button”>'),
 (79, 'language dependent application programming', 'hierarchy of objects in ASP.NET', 'all of these', 'convention for representing and interacting with objects in html documents'),
-(80, 'true', 'false', null, null),
+(80, 'true', 'false', '', ''),
 
 (81, 'they are the same', 'uninitialized value; absence of value', 'absence of value; uninitialized variable', 'none of these'),
-(82, 'true', 'false', null, null),
+(82, 'true', 'false', '', ''),
 (83, 'you should not use the JavaScript reserved keywords as a variable name (ie:boolean)', 'variable names should not start with a numeral(0-9), they must begin with a letter or underscore.', 'all of these', 'variable names are case sensitive.'),
-(84, 'true', 'false', null, null),
+(84, 'true', 'false', '', ''),
 (85, 'var x = [];', 'var x = ''array'';', 'var x = {};', 'none of these'),
 
 (86, 'Link', 'Route', 'Switch', 'Router'),
 (87, '{}', '[]', '??', '()'),
-(88, 'render () { return false }', 'render () { return null }', 'render () {''''}', 'render() { return <></> }'),
+(88, 'setProps()', 'setState()', 'updateState()', 'handleState()'),
 (89, 'static', 'alwaysSet()', 'mutable', 'doNotChange'),
-(90, 'field value persistence via Redux store', 'validate (sync/async) and submit', 'format, pare and normalize of field values', ' all of these'),
+(90, 'field value persistence via Redux store', 'validate (sync/async) and submit', 'format, pare, and normalize field values', 'all of these'),
 
-(91, 'true', 'false', null, null),
+(91, 'true', 'false', '', ''),
 (92, 'it passes management to a consecutive matching route', 'it represents the request and the response objects', 'it handles errors', 'none of these'),
 (93, 'creates faster and smarter web applications', 'simple and minimal', 'flexible and scalable', 'all of these'),
 (94, 'REpresentational State Transfer', 'REsource Server Timeout', 'REpresentational Server Testing', 'REpresentational Sorting Technique'),
 (95, 'GET, POST,  PUT, DELETE', 'PUSH, PUT, PULL, DELETE', 'GET, PUSH, PUT, DELETE', 'all of these'),
 
 (96, 'asynchronous', 'unified programming language and data type', 'generally fast', 'all of these'),
-(97, 'true', 'false', null, null),
+(97, 'true', 'false', '', ''),
 (98, 'Java', 'Python', 'Node.js', 'all of these'),
-(99, 'true', 'false', null, null),
+(99, 'true', 'false', '', ''),
 (100, 'Express and Mongoose', 'Express and React', ' Mongoose and Angular', 'Java and Express'),
 
 (101, '0', '1', '1st', '-1'),
