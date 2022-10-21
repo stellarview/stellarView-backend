@@ -324,7 +324,7 @@ describe('quiz-routes', () => {
       choice_two: 'built-in middleware',
       choice_three: 'third-party middleware',
       choice_four: 'all of these',
-      question: 'Which of the following is NOT a type of Middleware?',
+      question: 'Which of the following is NOT a type of middleware?',
       correct_answer: 'all of these',
     });
   });
@@ -341,8 +341,7 @@ describe('quiz-routes', () => {
       choice_two: 'false',
       choice_three: '',
       choice_four: '',
-      question:
-        'In ExpressJS there are two ways used for configuring the properties, with process.ENV and with require.js.',
+      question: expect.any(String),
       correct_answer: 'true',
     });
   });
