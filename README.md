@@ -1,47 +1,46 @@
-# Template for Backend Express
+# stellarView
 
-The Golden Rule:
-🦸 🦸‍♂️ Stop starting and start finishing. 🏁
+stellarView is a full-stack interactive prep tool to help developers build confidence for their next technical interview.
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+- [Live Deploy](https://stellarview.netlify.app/welcome)
+- [Frontend Repository](https://github.com/stellarview/stellarView-frontend)
+- [Miro Board](https://miro.com/app/board/uXjVPO8zL6Q=/?share_link_id=58126108903)  
 
-## Scripts
+## Team Members
 
-| command                            | description                                                                         |
-| ----------------------             | ----------------------------------------------------------------------------------- |
-| `npm start`                        | starts the app - should only be used in production as changes will not get reloaded |
-| `npm run start:watch`              | runs the app using `nodemon` which watches for changes and reloads the app          |
-| `npm test`                         | runs the tests once                                                                 |
-| `npm run test:watch`               | continually watches and runs the tests when files are updated                       |
-| `npm run setup-db`                 | sets up the database locally                                                        |
-| `npm run setup-heroku`             | sets up the database on heroku                                                      |
-| `createdb -U postgres stellarView` | creates the new database for the stellarView tables                                 |
+| **Project Team**              | **GitHub**                                | **LinkedIn**                                                   |
+| ----------------------------- | ------------------------------------------| ---------------------------------------------------------------|
+| Aaron Enyetu (he/him)         | [Github](https://github.com/aaronEnyetu)  | [LinkedIn](https://www.linkedin.com/in/aaron-enyetu/)          |
+| Austin Han (he/him)           | [Github](https://github.com/austinbhan)   | [LinkedIn](https://www.linkedin.com/in/austin-han-740a69157/)  |
+| Jenna Graham (she/her)        | [Github](https://github.com/jenna-graham) | [LinkedIn](https://www.linkedin.com/in/jenna-lee-graham)       |
+| Kashi Tamang (they/them)      | [Github](https://github.com/kashitamang)  | [LinkedIn](https://www.linkedin.com/in/kashitamang)            |
+| Brien Thomas (he/him)         | [Github](https://github.com/briensthomas) | [LinkedIn](https://www.linkedin.com/in/brien-thomas)           |
+| Kat Zaro (she/her)            | [GitHub](https://github.com/kathrynzaro)  | [LinkedIn](https://www.linkedin.com/in/katzaro)                |
 
-## User Routes
+## Backend API
 
-## Controllers
-    controller questions file
-    controller for question_choices
-    double check user model/controller for our expectations of the project
+#### User Routes
 
-## Models
+- `POST /api/v1/users/`
+- `POST /api/v1/users/session`
+- `GET /api/v1/users/me`
+- `DELETE /api/v1/users/session`
 
-# Users:
-- insert new user
-- get all Users (admin)
-- getByEmail
-- getByUsername
-- getPasswordHash
+#### Quiz Routes
 
-# Questions:
-- getAll
-- getByLevel
-- getById(?)
-- getCorrectHash
+- `GET /api/v1/quiz/:category/:level`
+- `GET /api/v1/quiz`
 
-- Insert
-- Update
-- Delete
+### Creating a new database
 
-Question_Choices:
-- 
+| command                                                   | description                                                                         |
+| ----------------------                                    | ----------------------------------------------------------------------------------- |
+| `cd ~`                                                    | Navigate to root directory |
+| `cd ../..`                                                |           
+| **Windows**                                               | Commands for Windows
+| `cd C:\Program Files\PostgreSQL\14\bin\`                  | 
+| `./createdb -U postgres YOUR_DB_NAME`                     |  
+| **Mac**                                                   | Commands for Mac
+| `cd /Applications/Postgres.app/Contents/Versions/14/bin`    
+| `./createdb -U postgres YOUR_DB_NAME`                     
+| `createdb -U postgres stellarView`                        

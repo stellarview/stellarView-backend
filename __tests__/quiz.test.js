@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
@@ -86,7 +85,6 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
   it('should return the list of javascript level 1 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/javascript/1');
@@ -141,7 +139,6 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
   it('should return the list of css level 1 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/css/1');
@@ -194,7 +191,6 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
   it('should return the list of react level 1 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/react/1');
@@ -249,7 +245,6 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
   it('should return the list of node level 1 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/node/1');
@@ -304,7 +299,6 @@ describe('quiz-routes', () => {
     });
   });
 
-  // Change test per test category
   it('should return the list of express level 1 questions', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/quiz/express/1');
