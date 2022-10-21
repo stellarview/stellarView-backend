@@ -30,11 +30,6 @@ CREATE TABLE question_choices (
   FOREIGN KEY (questions_id) REFERENCES questions(id)
 );
 
-INSERT INTO users 
-(username, email, password_hash, completed_categories, total_points)
-VALUES
-('TestUser', 'testuser23@example.com', '$2b$10$eY3Akf8nRv0dQHO4o8.8FubY2O7ArGhQ/fjj50T2QuX.wyyeC7w0e', array['html_one'], 5);
-
 INSERT INTO questions
 (category, level, question, correct_answer)
 VALUES 
@@ -121,7 +116,6 @@ VALUES
 ('dsna', 2, 'What is the maximum number of children that a node can have in a binary tree?', '2'),
 ('dsna', 2, 'A linear data structure in which insertion and deletion operations can be performed from both the ends is ____', 'dequeue'),
 ('dsna', 2, 'The time complexity of the enqueue operation in Queue is ____', 'O(1)'),
-
 
 ('css', 3, 'How can CSS be integrated?', 'all of these'),
 ('css', 3, 'CSS classes can be applied to multiple elements, whereas ids can be applied to only one element.', 'true'),
