@@ -25,8 +25,8 @@ CREATE TABLE question_choices (
   questions_id BIGINT,
   choice_one VARCHAR NOT NULL,
   choice_two VARCHAR NOT NULL,
-  choice_three VARCHAR,
-  choice_four VARCHAR,
+  choice_three VARCHAR NOT NULL,
+  choice_four VARCHAR NOT NULL,
   FOREIGN KEY (questions_id) REFERENCES questions(id)
 );
 
