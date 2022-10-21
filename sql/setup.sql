@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS questions CASCADE;
 DROP TABLE IF EXISTS question_choices CASCADE;
--- connect own DB
 
 CREATE TABLE users (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -13,8 +12,6 @@ CREATE TABLE users (
   total_points INT DEFAULT 0
 );
 
--- table for questions
-
 CREATE TABLE questions (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   category VARCHAR,
@@ -22,8 +19,6 @@ CREATE TABLE questions (
   question VARCHAR,
   correct_answer VARCHAR NOT NULL
 );
-
--- table for question_choices
 
 CREATE TABLE question_choices (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -35,14 +30,10 @@ CREATE TABLE question_choices (
   FOREIGN KEY (questions_id) REFERENCES questions(id)
 );
 
---  Inserts for Users
 INSERT INTO users 
 (username, email, password_hash, completed_categories, total_points)
 VALUES
 ('TestUser', 'testuser23@example.com', '$2b$10$eY3Akf8nRv0dQHO4o8.8FubY2O7ArGhQ/fjj50T2QuX.wyyeC7w0e', array['html_one'], 5);
-
--- Inserts for questions
-
 
 INSERT INTO questions
 (category, level, question, correct_answer)
@@ -173,7 +164,6 @@ VALUES
 ('dsna', 3, 'Concatenation can', 'merge arrays, strings and objects'),
 ('dsna', 3, 'In arrays, every() does what?', 'checks if all array values pass a test'),
 ('dsna', 3, 'Array.toString(["Banana", "Pineapple", "Drew Carey"]) returns', '"Banana,Pineapple,Drew Carey"');
--- Inserts for question choices
 
 INSERT INTO question_choices 
 (questions_id, choice_one, choice_two, choice_three, choice_four)
