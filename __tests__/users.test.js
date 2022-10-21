@@ -8,9 +8,7 @@ const UserService = require('../lib/services/UserService');
 const mockUser = {
   username: 'User',
   email: 'test@example.com',
-  password: '12345',
-  completed_categories: [''],
-  total_points: '0'
+  password: '12345'
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -39,18 +37,53 @@ describe('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
-    const { username, email, total_points } = mockUser;
+    const { username, email } = mockUser;
 
     expect(res.body).toEqual({
       id: expect.any(String),
       username,
       email,
-      completed_categories: null, 
-      total_points
+      completed_categories: [], 
+      total_points: 0
     });
   });
 
-  it('signs in an existing user', async () => {
+  it('get user by id, return all information about the user', async () => {
+    const [agent] = await registerAndLogin();
+    const res = await agent.get('/api/v1/users/1');
+    
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      username: expect.any(String),
+      email: expect.any(String),
+      completed_categories: [],
+      total_points: 0
+    });
+  });
+
+  it('should update a user', async () => {
+    const updates = {
+      completed_categories: 'css', 
+      total_points: 10
+    };
+    const [agent] = await registerAndLogin();
+    const res = await agent.patch('/api/v1/users/2').send(updates);
+
+    expect(res.body.total_points).toEqual(10);
+    expect(res.body.completed_categories).toEqual(['css']);
+
+    const newUpdate = {
+      completed_categories: 'react',
+      total_points: 10
+    };
+    const secondUpdate = await agent.patch('/api/v1/users/2').send(newUpdate);
+
+    expect(secondUpdate.body.total_points).toEqual(20);
+    expect(secondUpdate.body.completed_categories).toEqual(['css', 'react']);
+
+  });
+
+  it('signs in an existing user with an email', async () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
@@ -58,7 +91,7 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it('signs in an existing user', async () => {
+  it('signs in an existing user with a username', async () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
@@ -79,7 +112,7 @@ describe('user routes', () => {
 
   it('/users should return 401 if user not admin', async () => {
     const [agent] = await registerAndLogin();
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(403);
   });
 
@@ -92,21 +125,20 @@ describe('user routes', () => {
       password: '1234',
       username: 'admin',
       completed_categories: [],
-      total_points: '0'
+      total_points: 0
     });
     // sign in the user
     await agent
       .post('/api/v1/users/sessions')
       .send({ email: 'admin', password: '1234' });
-
     // const [agent] = await registerAndLogin({ email: 'admin' });
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(200);
   });
 
   it('/users should return a 200 if user is admin', async () => {
     const [agent] = await registerAndLogin({ email: 'admin' });
-    const res = await agent.get('/api/v1/users/');
+    const res = await agent.get('/api/v1/users');
     expect(res.status).toEqual(200);
   });
 
