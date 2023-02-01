@@ -1,5 +1,7 @@
 # stellarView
 
+<em> ! our server is being transferred to a new host, thank you for your patience ! </em> 
+
 stellarView is a full-stack interactive prep tool to help developers build confidence for their next technical interview.
 
 - [Live Deploy](https://stellarview.netlify.app/welcome)
